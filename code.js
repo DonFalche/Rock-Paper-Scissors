@@ -1,14 +1,18 @@
+//determine computer choice
 function getComputerChoice(){
     const pick = ['rock', 'paper', 'scissors'];
     return pick[Math.floor(Math.random() * pick.length)];
 }
 
+//turn computer choice into variable
 let computerSelection = getComputerChoice();
-console.log('computer choice is ',computerSelection);
+//console.log('computer choice is ',computerSelection);
 
+//determine player selection
 let playerSelection = prompt('rock... paper... scissors...').toLowerCase();
-console.log('player choice is ',playerSelection);
+//console.log('player choice is ',playerSelection);
 
+//1 round of the game
 function playRound(){
     if (playerSelection == 'rock' && computerSelection == 'rock' || playerSelection == 'paper' && computerSelection == 'paper' || playerSelection == 'scissors' && computerSelection == 'scissors'){
         return ('its a tie! you both picked ' + playerSelection)
