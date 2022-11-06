@@ -21,17 +21,32 @@ function game(){
             console.log('computer selection is ' + computerSelection);
             console.log('player selection is ' + playerSelection);
             //depending on the player and computer selections, the game adds a round, adds a point to one or the other and delivers a message.
-            //tie 
-            if ((playerSelection == 'rock' && computerSelection == 'rock') || (playerSelection == 'paper' && computerSelection == 'paper') || (playerSelection == 'scissors' && computerSelection == 'scissors')){
-                roundNumber ++; return ('its a tie! you both picked ' + playerSelection + ' scoreboard is: COMPUTER: ' + computerScore + ', PLAYER: ' + playerScore)
-            //player wins    
-            } else if ((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'scissors' && computerSelection == 'paper')){
-                roundNumber ++, playerScore++; return ('congratulations!!! ' + playerSelection + ' beats ' + computerSelection + ', you win!!!' + ' scoreboard is: COMPUTER: ' + computerScore + ', PLAYER: ' + playerScore)
-            //computer wins    
-            } else if ((playerSelection == 'scissors' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'paper' && computerSelection == 'scissors')){
-                roundNumber ++, computerScore++; return ('too bad, ' + computerSelection + ' beats ' + playerSelection + ', you loose' + ' scoreboard is: COMPUTER: ' + computerScore + ', PLAYER: ' + playerScore)
-            //player summons an invalid answer    
+            //if tie 
+            if ((playerSelection == 'rock' && computerSelection == 'rock') || 
+                (playerSelection == 'paper' && computerSelection == 'paper') || 
+                (playerSelection == 'scissors' && computerSelection == 'scissors')){
+                //return
+                roundNumber ++; return ('its a tie! you both picked ' + playerSelection + 
+                ' scoreboard is: COMPUTER: ' + computerScore + ', PLAYER: ' + playerScore)
+            //if player wins    
+            } else if ((playerSelection == 'rock' && computerSelection == 'scissors') || 
+                       (playerSelection == 'paper' && computerSelection == 'rock') || 
+                       (playerSelection == 'scissors' && computerSelection == 'paper')){
+                //return
+                roundNumber ++, playerScore++; return ('congratulations!!! ' + playerSelection + 
+                ' beats ' + computerSelection + ', you win!!!' + ' scoreboard is: COMPUTER: ' + 
+                computerScore + ', PLAYER: ' + playerScore)
+            //if computer wins    
+            } else if ((playerSelection == 'scissors' && computerSelection == 'rock') || 
+                       (playerSelection == 'rock' && computerSelection == 'paper') || 
+                       (playerSelection == 'paper' && computerSelection == 'scissors')){
+                //return
+                roundNumber ++, computerScore++; return ('too bad, ' + computerSelection + 
+                ' beats ' + playerSelection + ', you loose' + ' scoreboard is: COMPUTER: ' + 
+                computerScore + ', PLAYER: ' + playerScore)
+            //if player summons an invalid answer    
             } else {
+                //return
                 roundNumber ++; return ('error ' + playerSelection + ' its not a valid answer')
             }
             
@@ -41,15 +56,18 @@ function game(){
     }
     //when the round number reaches 5 (the final round) the game compares scores and anounces the winner or if it is a tie
     if (roundNumber == 5){
-        //player wins
+        //if player wins
         if (playerScore > computerScore){
-            console.log('CONGRATULATIONS!!!! the final score is PLAYER: ' + playerScore + ' COMPUTER: ' + computerScore + ' YOU WIN!!!!')
+            console.log('CONGRATULATIONS!!!! the final score is PLAYER: ' + playerScore + 
+            ' COMPUTER: ' + computerScore + ' YOU WIN!!!!')
         //computer wins
         } else if(computerScore > playerScore){
-            console.log('too bad, the final score is PLAYER: ' + playerScore + ' COMPUTER: ' + computerScore + ' computer wins, better luck next time')
+            console.log('too bad, the final score is PLAYER: ' + playerScore + ' COMPUTER: ' + 
+            computerScore + ' computer wins, better luck next time')
         //tie
         } else{
-            console.log('the final score is PLAYER: ' + playerScore + ' COMPUTER: ' + computerScore + ' nobody wins')
+            console.log('the final score is PLAYER: ' + playerScore + ' COMPUTER: ' + computerScore + 
+            ' nobody wins')
         }
     }
      
