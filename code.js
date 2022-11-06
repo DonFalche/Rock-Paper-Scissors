@@ -14,7 +14,7 @@ function game(){
     let roundNumber = 0;
 
     //this is a 5 round game, each round the computer choses a hand and ask the player for his hand and then compare to determine the winer
-    for (let i = 0; i < 5; i++) {
+    while (roundNumber < 5) {
         function playRound(){
             let computerSelection = getComputerChoice();
             let playerSelection = prompt('rock... paper... scissors...').toLowerCase();
