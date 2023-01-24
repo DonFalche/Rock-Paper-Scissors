@@ -13,43 +13,53 @@ let roundWinner = '';
 let cSelection = '';
 let pSelection = '';
 let finalScore = '';
+let playerSelection = '';
 
-function playRound(){
-    let computerSelection = getComputerChoice();
-    let playerSelection = prompt('rock... paper... scissors...').toLowerCase();
+//porque cuando logueo los buttons dice nodelist length 0 ? FIREFOX Y LA RE CONCHA DE TU MADRE... nah mentira te quiero
+document.addEventListener('DOMContentLoaded', function(){
+
+const buttons = document.querySelectorAll('.hand');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', function clickListener(event) {
+        let computerSelection = getComputerChoice();
+        let playerSelection = event.target.id
+        playRound(playerSelection, computerSelection);
+        console.log(playerSelection);
+        console.log(computerSelection);
+        console.log(roundWinner)
+    })
+})
+//console.log(buttons)
+});
+
+function playRound(playerSelection, computerSelection){
+    //let computerSelection = getComputerChoice();
+    //let playerSelection = prompt('rock... paper... scissors...').toLowerCase();
     cSelection = (`computer selection is ${computerSelection}`);
     pSelection = (`player selection is ${playerSelection}`);
-    //depending on the player and computer selections, the game adds a round, adds a point to one or the other and delivers a message.
     //if tie 
     if ((playerSelection == 'rock' && computerSelection == 'rock') || 
         (playerSelection == 'paper' && computerSelection == 'paper') || 
         (playerSelection == 'scissors' && computerSelection == 'scissors')){
-        //return
         roundWinner = (`its a tie! you both picked ${playerSelection}. scoreboard is: COMPUTER: ${computerScore}, PLAYER: ${playerScore}`)
     //if player wins    
     } else if ((playerSelection == 'rock' && computerSelection == 'scissors') || 
                (playerSelection == 'paper' && computerSelection == 'rock') || 
                (playerSelection == 'scissors' && computerSelection == 'paper')){
-        //return
         playerScore++; roundWinner = (`congratulations!!! ${playerSelection} beats ${computerSelection}, you win!!! scoreboard is: COMPUTER: ${computerScore}, PLAYER: ${playerScore}`)
     //if computer wins    
     } else if ((playerSelection == 'scissors' && computerSelection == 'rock') || 
                (playerSelection == 'rock' && computerSelection == 'paper') || 
                (playerSelection == 'paper' && computerSelection == 'scissors')){
-        //return
         computerScore++; roundWinner = (`too bad, ${computerSelection} beats ${playerSelection}, you loose. scoreboard is: COMPUTER: ${computerScore}, PLAYER: ${playerScore}`)
     //if player summons an invalid answer    
     } else {
-        //return
         roundWinner = (`error ${playerSelection} its not a valid answer`)
     }
-    
 }
-
 //the game
-function game(){
-
-    //this is a 5 round game, each round the computer choses a hand and ask the player for his hand and then compare to determine the winer
+/*function game(){
     do {
         playRound();
         roundNumber ++;
@@ -74,8 +84,7 @@ function game(){
         console.log(finalScore);
         return(finalScore);
     }
-     
 }
 
-//call the game function in order to get executed
-game();
+game(); */
+
